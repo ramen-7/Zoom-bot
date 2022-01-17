@@ -28,22 +28,31 @@ def sign_in(meeting_id):
     #print("Success3")
     #time.sleep(1)
 
-    dnc_video_btn = pyautogui.locateCenterOnScreen("TurnOffMyVideo.png")
-    pyautogui.moveTo(dnc_video_btn)
-    pyautogui.click()
-    print("Video Turned Off")
-    time.sleep(1)
+    try:
+        dnc_video_btn = pyautogui.locateCenterOnScreen("TurnOffMyVideo.png")
+        pyautogui.moveTo(dnc_video_btn)
+        pyautogui.click()
+        print("Video Turned Off")
+        time.sleep(1)
+    except FileNotFoundError:
+        print("TurnOffMyVideo.png not found")
 
-    join_f_btn = pyautogui.locateCenterOnScreen("Join.png")
-    pyautogui.moveTo(join_f_btn)
-    pyautogui.click()
-    print("Class joined")
-    time.sleep(15)
+    try:
+        join_f_btn = pyautogui.locateCenterOnScreen("Join.png")
+        pyautogui.moveTo(join_f_btn)
+        pyautogui.click()
+        print("Class joined")
+        time.sleep(15)
+    except FileNotFoundError:
+        print("Join.png not found.")
 
-    connect_audio_btn = pyautogui.locateCenterOnScreen("ConnectMyAuido.png")
-    pyautogui.moveTo(connect_audio_btn)
-    pyautogui.click()
-    print("Audio Connected")
+    try:
+        connect_audio_btn = pyautogui.locateCenterOnScreen("ConnectMyAudio.png")
+        pyautogui.moveTo(connect_audio_btn)
+        pyautogui.click()
+        print("Audio Connected")
+    except FileNotFoundError:
+        print("AudioConnected.png not found")
 
 def leave_meet():
     dnc_leave_meeting_btn = pyautogui.locateCenterOnScreen("LeaveButton.png")
